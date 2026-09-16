@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Michael V — Founding Engineer & Systems Architect</title>
+    <title>Michael V — Founding Engineer &amp; Systems Architect</title>
     <meta name="description"
-        content="0 to 1 Founding Engineer & Systems Architect. Specialized in high-throughput engines, binary protocols, and resource-bounded execution." />
+        content="0 to 1 Founding Engineer &amp; Systems Architect. Specialized in high-throughput engines, binary protocols, and resource-bounded execution." />
 
     <!-- Fonts: Inter & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -18,16 +18,15 @@
     <style>
         :root {
             --bg: #090a0f;
-            --card-bg: rgba(18, 20, 29, 0.7);
+            --card-bg: rgba(18, 20, 29, 0.75);
             --card-border: rgba(255, 255, 255, 0.08);
-            --card-hover: rgba(255, 255, 255, 0.15);
+            --card-hover: rgba(255, 255, 255, 0.16);
             --text-main: #f3f4f6;
             --text-muted: #9ca3af;
+            --text-subtle: #6b7280;
             --accent: #3b82f6;
-            --accent-glow: rgba(59, 130, 246, 0.15);
-            --green: #10b981;
-            --green-glow: rgba(16, 185, 129, 0.15);
-            --font-sans: 'Inter', -apple-system, sans-serif;
+            --accent-dim: rgba(59, 130, 246, 0.12);
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             --font-mono: 'JetBrains Mono', monospace;
         }
 
@@ -43,8 +42,9 @@
             font-family: var(--font-sans);
             line-height: 1.6;
             padding: 0 1.5rem;
-            background-image: radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.2) 0%, transparent 60%);
+            background-image: radial-gradient(circle at 50% 0%, rgba(30, 58, 138, 0.18) 0%, transparent 65%);
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
@@ -53,45 +53,50 @@
             padding: 4rem 0 6rem;
         }
 
-        /* Status Header */
+        /* Top Status Tag */
         .status-bar {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.25);
-            padding: 0.35rem 0.85rem;
-            border-radius: 9999px;
+            gap: 0.65rem;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--card-border);
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
             font-family: var(--font-mono);
-            font-size: 0.8rem;
-            color: #34d399;
-            margin-bottom: 2rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 2.25rem;
+            letter-spacing: 0.02em;
         }
 
-        .pulse-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: var(--green);
-            box-shadow: 0 0 8px var(--green);
+        .status-label {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .status-sep {
+            color: var(--text-subtle);
         }
 
         /* Hero Section */
         h1 {
             font-size: 2.75rem;
             font-weight: 700;
-            letter-spacing: -0.03em;
+            letter-spacing: -0.035em;
             line-height: 1.15;
             margin-bottom: 1rem;
+            color: #ffffff;
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.18rem;
             color: var(--text-muted);
-            max-width: 680px;
+            max-width: 700px;
             margin-bottom: 2rem;
+            line-height: 1.65;
         }
 
+        /* Technical Invariants Strip */
         .invariants-strip {
             display: flex;
             flex-wrap: wrap;
@@ -100,18 +105,19 @@
         }
 
         .badge {
-            background: rgba(255, 255, 255, 0.04);
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid var(--card-border);
             padding: 0.4rem 0.75rem;
             border-radius: 6px;
             font-family: var(--font-mono);
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             color: #cbd5e1;
+            letter-spacing: 0.01em;
         }
 
         /* Systems Grid */
         .section-title {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 600;
             letter-spacing: -0.01em;
             margin-bottom: 1.5rem;
@@ -120,12 +126,14 @@
             gap: 0.5rem;
             border-bottom: 1px solid var(--card-border);
             padding-bottom: 0.75rem;
+            color: #ffffff;
         }
 
         .section-title span {
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             color: var(--accent);
+            font-weight: 500;
         }
 
         .grid {
@@ -141,7 +149,7 @@
             }
 
             h1 {
-                font-size: 2rem;
+                font-size: 2.1rem;
             }
         }
 
@@ -150,53 +158,51 @@
             border: 1px solid var(--card-border);
             border-radius: 12px;
             padding: 1.75rem;
-            transition: all 0.2s ease;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            backdrop-filter: blur(8px);
+            backdrop-filter: blur(10px);
         }
 
         .card:hover {
             border-color: var(--card-hover);
             transform: translateY(-2px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
         }
 
         .card-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.85rem;
+            gap: 1rem;
         }
 
         .card-title {
             font-size: 1.25rem;
             font-weight: 600;
-            color: #fff;
+            color: #ffffff;
+            letter-spacing: -0.02em;
         }
 
         .card-tag {
             font-family: var(--font-mono);
             font-size: 0.72rem;
-            padding: 0.2rem 0.5rem;
+            padding: 0.25rem 0.55rem;
             border-radius: 4px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.04);
             border: 1px solid var(--card-border);
-            color: var(--text-muted);
-        }
-
-        .card-tag.live {
-            background: rgba(16, 185, 129, 0.1);
-            border-color: rgba(16, 185, 129, 0.3);
-            color: #34d399;
+            color: #94a3b8;
+            white-space: nowrap;
         }
 
         .card-desc {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 1.25rem;
+            font-size: 0.94rem;
+            margin-bottom: 1.35rem;
             flex-grow: 1;
+            line-height: 1.6;
         }
 
         .card-metrics {
@@ -205,12 +211,12 @@
             gap: 0.5rem;
             margin-bottom: 1.5rem;
             font-family: var(--font-mono);
-            font-size: 0.78rem;
+            font-size: 0.76rem;
         }
 
         .metric {
-            background: rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(15, 23, 42, 0.65);
+            border: 1px solid rgba(59, 130, 246, 0.18);
             padding: 0.25rem 0.6rem;
             border-radius: 4px;
             color: #93c5fd;
@@ -221,11 +227,11 @@
             gap: 0.75rem;
             align-items: center;
             padding-top: 1rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .btn {
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 500;
             text-decoration: none;
             padding: 0.45rem 0.9rem;
@@ -234,11 +240,13 @@
             display: inline-flex;
             align-items: center;
             gap: 0.35rem;
+            font-family: var(--font-sans);
         }
 
         .btn-primary {
             background: #2563eb;
-            color: #fff;
+            color: #ffffff;
+            border: 1px solid transparent;
         }
 
         .btn-primary:hover {
@@ -246,14 +254,21 @@
         }
 
         .btn-secondary {
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.04);
             color: #cbd5e1;
             border: 1px solid var(--card-border);
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+
+        .nda-label {
+            font-size: 0.82rem;
+            color: #94a3b8;
+            font-family: var(--font-mono);
         }
 
         /* Footer */
@@ -264,16 +279,21 @@
             justify-content: space-between;
             align-items: center;
             color: var(--text-muted);
-            font-size: 0.9rem;
-            flex-wrap: gap;
+            font-size: 0.88rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.25rem;
         }
 
         .social-links a {
             color: #cbd5e1;
             text-decoration: none;
-            margin-left: 1.25rem;
             font-family: var(--font-mono);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             transition: color 0.15s ease;
         }
 
@@ -287,31 +307,31 @@
 
     <div class="container">
 
-        <!-- Top Status Pill -->
+        <!-- Top Status Bar -->
         <div class="status-bar">
-            <div class="pulse-dot"></div>
-            <span>Available for Founding Engineer Roles // Greater Seattle Area & Remote</span>
+            <span class="status-label">STATUS //</span>
+            <span>Founding Engineer &amp; Systems Architect &bull; Seattle, WA &amp; Remote</span>
         </div>
 
         <!-- Hero Header -->
         <h1>Michael V</h1>
         <p class="subtitle">
-            0 to 1 Founding Engineer & Systems Architect. Specializing in high-throughput engines, binary protocols,
+            0 to 1 Founding Engineer &amp; Systems Architect. Specializing in high-throughput engines, binary protocols,
             memory-bounded streaming, and hardened production platforms.
         </p>
 
         <!-- Core Invariants -->
         <div class="invariants-strip">
-            <div class="badge">⚙️ Zero Runtime Dependencies</div>
-            <div class="badge">🔒 &lt;64 MB Memory Caps</div>
-            <div class="badge">⏱️ 20 Hz Locked Simulation</div>
-            <div class="badge">🎯 Byte-for-Byte SHA Parity</div>
-            <div class="badge">🛡️ Client-Side Air-Gapped Privacy</div>
+            <div class="badge">Zero Runtime Dependencies</div>
+            <div class="badge">&lt;64 MB Memory Caps</div>
+            <div class="badge">20 Hz Locked Simulation</div>
+            <div class="badge">Deterministic SHA-256 Parity</div>
+            <div class="badge">Air-Gapped Client Privacy</div>
         </div>
 
         <!-- Systems Grid -->
         <div class="section-title">
-            <span>01 //</span> Featured Production Platforms & Systems Research
+            <span>01 //</span> Featured Production Platforms &amp; Systems Research
         </div>
 
         <div class="grid">
@@ -321,7 +341,7 @@
                 <div>
                     <div class="card-header">
                         <h3 class="card-title">eidolon</h3>
-                        <span class="card-tag">Pure Rust</span>
+                        <span class="card-tag">Rust // Engine</span>
                     </div>
                     <p class="card-desc">
                         Headless authoritative MMO server engine engineered to eliminate cloud infrastructure bloat and
@@ -336,17 +356,16 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a class="btn btn-secondary" href="https://github.com/mikev-lab/eidolon" target="_blank">View Code &
-                        Specs ↗</a>
+                    <a class="btn btn-secondary" href="https://github.com/mikev-lab/eidolon" target="_blank">Source &amp; Specs ↗</a>
                 </div>
             </div>
 
-            <!-- 2. canvas-redact (WITH LIVE DEMO) -->
+            <!-- 2. canvas-redact -->
             <div class="card">
                 <div>
                     <div class="card-header">
                         <h3 class="card-title">canvas-redact</h3>
-                        <span class="card-tag live">● Live Interactive Demo</span>
+                        <span class="card-tag">TypeScript // Canvas</span>
                     </div>
                     <p class="card-desc">
                         Frame-accurate React + HTML5 Canvas video scrubber for sub-pixel privacy redaction, keyframe
@@ -361,19 +380,17 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a class="btn btn-primary" href="https://mikev-lab.github.io/canvas-redact/" target="_blank">Launch
-                        Live Demo ↗</a>
-                    <a class="btn btn-secondary" href="https://github.com/mikev-lab/canvas-redact"
-                        target="_blank">GitHub</a>
+                    <a class="btn btn-primary" href="https://mikev-lab.github.io/canvas-redact/" target="_blank">Launch App ↗</a>
+                    <a class="btn btn-secondary" href="https://github.com/mikev-lab/canvas-redact" target="_blank">GitHub ↗</a>
                 </div>
             </div>
 
-            <!-- 3. pak-delta (WITH LIVE DEMO) -->
+            <!-- 3. pak-delta -->
             <div class="card">
                 <div>
                     <div class="card-header">
                         <h3 class="card-title">pak-delta</h3>
-                        <span class="card-tag live">● Live Interactive Demo</span>
+                        <span class="card-tag">TypeScript // Binary Engine</span>
                     </div>
                     <p class="card-desc">
                         Archive-aware Content-Defined Delta compression engine for game packfiles and container archives
@@ -386,10 +403,8 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a class="btn btn-primary" href="https://mikev-lab.github.io/pak-delta/" target="_blank">Launch
-                        Playground ↗</a>
-                    <a class="btn btn-secondary" href="https://github.com/mikev-lab/pak-delta"
-                        target="_blank">GitHub</a>
+                    <a class="btn btn-primary" href="https://mikev-lab.github.io/pak-delta/" target="_blank">Launch App ↗</a>
+                    <a class="btn btn-secondary" href="https://github.com/mikev-lab/pak-delta" target="_blank">GitHub ↗</a>
                 </div>
             </div>
 
@@ -398,7 +413,7 @@
                 <div>
                     <div class="card-header">
                         <h3 class="card-title">poltergeist</h3>
-                        <span class="card-tag">Node.js / Systems</span>
+                        <span class="card-tag">Node.js // Systems</span>
                     </div>
                     <p class="card-desc">
                         Drop-in, memory-safe replacement for Ghostscript in automated document pipelines. Eliminates
@@ -412,17 +427,16 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a class="btn btn-secondary" href="https://github.com/mikev-lab/poltergeist" target="_blank">View
-                        Code & Specs ↗</a>
+                    <a class="btn btn-secondary" href="https://github.com/mikev-lab/poltergeist" target="_blank">Source &amp; Specs ↗</a>
                 </div>
             </div>
 
-            <!-- 5. micro-attribution (WITH LIVE DEMO) -->
+            <!-- 5. micro-attribution -->
             <div class="card">
                 <div>
                     <div class="card-header">
                         <h3 class="card-title">micro-attribution</h3>
-                        <span class="card-tag live">● Live Interactive Demo</span>
+                        <span class="card-tag">TypeScript // Telemetry</span>
                     </div>
                     <p class="card-desc">
                         Offline-resilient client and edge telemetry engine for cookieless conversion attribution.
@@ -436,10 +450,8 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <a class="btn btn-primary" href="https://mikev-lab.github.io/micro-attribution/"
-                        target="_blank">Launch Playground ↗</a>
-                    <a class="btn btn-secondary" href="https://github.com/mikev-lab/micro-attribution"
-                        target="_blank">GitHub</a>
+                    <a class="btn btn-primary" href="https://mikev-lab.github.io/micro-attribution/" target="_blank">Launch App ↗</a>
+                    <a class="btn btn-secondary" href="https://github.com/mikev-lab/micro-attribution" target="_blank">GitHub ↗</a>
                 </div>
             </div>
 
@@ -463,8 +475,7 @@
                     </div>
                 </div>
                 <div class="card-actions">
-                    <span style="font-size: 0.85rem; color: #94a3b8; font-family: var(--font-mono);">Arch Review
-                        Available Under NDA</span>
+                    <span class="nda-label">Architecture Review Available Under NDA</span>
                 </div>
             </div>
 
@@ -472,10 +483,10 @@
 
         <!-- Footer -->
         <footer>
-            <div>© 2026 Michael V // Systems Research & Architecture</div>
+            <div>&copy; 2026 Michael V // Systems Research &amp; Architecture</div>
             <div class="social-links">
-                <a href="https://github.com/mikev-lab" target="_blank">GitHub</a>
-                <a href="https://linkedin.com/in/michael-j-valdez" target="_blank">LinkedIn</a>
+                <a href="https://github.com/mikev-lab" target="_blank">GitHub ↗</a>
+                <a href="https://linkedin.com/in/michael-j-valdez" target="_blank">LinkedIn ↗</a>
             </div>
         </footer>
 
