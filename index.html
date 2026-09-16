@@ -136,11 +136,123 @@
             font-weight: 500;
         }
 
+        /* Flagship Feature Card */
+        .flagship-card {
+            background: linear-gradient(180deg, rgba(20, 24, 38, 0.9) 0%, rgba(13, 16, 26, 0.8) 100%);
+            border: 1px solid rgba(59, 130, 246, 0.32);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 4rem;
+            backdrop-filter: blur(10px);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+        }
+
+        .flagship-card:hover {
+            border-color: rgba(59, 130, 246, 0.55);
+            transform: translateY(-2px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5), 0 0 28px rgba(59, 130, 246, 0.1);
+        }
+
+        .flagship-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .flagship-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            color: var(--accent);
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.35rem;
+        }
+
+        .flagship-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.025em;
+        }
+
+        .flagship-badge {
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            padding: 0.3rem 0.65rem;
+            border-radius: 4px;
+            background: rgba(59, 130, 246, 0.12);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            color: #93c5fd;
+            white-space: nowrap;
+        }
+
+        .flagship-desc {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            line-height: 1.65;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+
+        .flagship-pillars {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .flagship-pillars {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .pillar {
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+
+        .pillar-label {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: #f1f5f9;
+            margin-bottom: 0.35rem;
+        }
+
+        .pillar-desc {
+            font-size: 0.82rem;
+            color: var(--text-subtle);
+            line-height: 1.5;
+        }
+
+        .flagship-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.25rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
             gap: 1.5rem;
             margin-bottom: 4rem;
+        }
+
+        @media (min-width: 641px) {
+            .grid > .card:last-child:nth-child(odd) {
+                grid-column: 1 / -1;
+            }
         }
 
         @media (max-width: 640px) {
@@ -329,9 +441,58 @@
             <div class="badge">Air-Gapped Client Privacy</div>
         </div>
 
-        <!-- Systems Grid -->
+        <!-- Section 01: Flagship Commercial Platform -->
         <div class="section-title">
-            <span>01 //</span> Featured Production Platforms &amp; Systems Research
+            <span>01 //</span> Flagship Commercial Platform
+        </div>
+
+        <div class="flagship-card">
+            <div class="flagship-header">
+                <div>
+                    <div class="flagship-eyebrow">PRIMARY PRODUCTION ARCHITECTURE // ~85% BANDWIDTH</div>
+                    <h2 class="flagship-title">Industrial Automation Platform</h2>
+                </div>
+                <span class="flagship-badge">Commercial Production</span>
+            </div>
+
+            <p class="flagship-desc">
+                Mission-critical workflow orchestration and automated manufacturing pipeline operating in daily
+                commercial production. Unifies high-capacity physical hardware presses with cloud-facing pre-flight
+                engines, dynamic layout calculation, automated imposition, and real-time hardware queue daemons.
+            </p>
+
+            <div class="flagship-pillars">
+                <div class="pillar">
+                    <div class="pillar-label">Hardware Daemon &amp; Queuing</div>
+                    <div class="pillar-desc">Sub-second bi-directional polling, automated hot-folder routing, and hardware status telemetry for high-capacity digital presses.</div>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-label">Pre-Flight &amp; Imposition Engine</div>
+                    <div class="pillar-desc">Automated dynamic layout calculation, bleed compensation, PDF vector validation, and zero-loss CMYK color separation.</div>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-label">Cloud Orchestration</div>
+                    <div class="pillar-desc">Resilient event-driven architecture bridging browser-based customer management to GCP &amp; Firebase production backends.</div>
+                </div>
+            </div>
+
+            <div class="card-metrics" style="margin-bottom: 0;">
+                <div class="metric">Daily Commercial Production</div>
+                <div class="metric">Next.js + GCP + Firebase</div>
+                <div class="metric">Hardware Print Queues</div>
+                <div class="metric">Sub-pixel Imposition Math</div>
+                <div class="metric">Automated Pre-Flight Verification</div>
+            </div>
+
+            <div class="flagship-footer">
+                <span class="nda-label">Architecture Review &amp; Deep-Dive Walkthrough Available Under NDA</span>
+                <a class="btn btn-secondary" href="https://linkedin.com/in/michael-j-valdez" target="_blank">Inquire via LinkedIn ↗</a>
+            </div>
+        </div>
+
+        <!-- Section 02: Systems Research & Open Source Engines -->
+        <div class="section-title">
+            <span>02 //</span> Specialized Systems Research &amp; Deep-Tech Tooling
         </div>
 
         <div class="grid">
@@ -452,30 +613,6 @@
                 <div class="card-actions">
                     <a class="btn btn-primary" href="https://mikev-lab.github.io/micro-attribution/" target="_blank">Launch App ↗</a>
                     <a class="btn btn-secondary" href="https://github.com/mikev-lab/micro-attribution" target="_blank">GitHub ↗</a>
-                </div>
-            </div>
-
-            <!-- 6. Industrial Automation Platform -->
-            <div class="card">
-                <div>
-                    <div class="card-header">
-                        <h3 class="card-title">Industrial Automation Platform</h3>
-                        <span class="card-tag">Commercial Production</span>
-                    </div>
-                    <p class="card-desc">
-                        Mission-critical workflow orchestration and automated manufacturing pipeline. Bridges
-                        cloud-facing web interfaces with high-capacity industrial hardware, dynamic layout calculation,
-                        and high-volume document validation.
-                    </p>
-                    <div class="card-metrics">
-                        <div class="metric">Daily Commercial Production</div>
-                        <div class="metric">Next.js + GCP + Firebase</div>
-                        <div class="metric">Hardware Print Queues</div>
-                        <div class="metric">Review Under NDA</div>
-                    </div>
-                </div>
-                <div class="card-actions">
-                    <span class="nda-label">Architecture Review Available Under NDA</span>
                 </div>
             </div>
 
